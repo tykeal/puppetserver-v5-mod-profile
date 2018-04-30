@@ -10,7 +10,14 @@ class profile::base {
   # we haven't ported anything yet, it's just empty
 
   # hiera drive custom porfile / class loads
-  $custom_profiles = hiera_array('custom_profiles', undef)
+  $custom_profiles = lookup(
+    'custom_profiles',
+    {
+      'value_type'    => Array,
+      'default_value' => undef,
+    }
+  )
+  #$custom_profiles = hiera_array('custom_profiles', undef)
   if ($custom_profiles) {
     hiera_include('custom_profiles')
   }
