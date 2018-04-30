@@ -13,7 +13,7 @@ class profile::base {
   $custom_profiles = lookup(
     'custom_profiles',
     {
-      'value_type'    => Enum[Array,Undef],
+      'value_type'    => Variant[Array,Undef],
       'default_value' => undef,
     }
   )
