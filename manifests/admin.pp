@@ -31,13 +31,14 @@ class profile::admin {
   }
 
   # https://github.com/mricon/puppet-eyes
-  file { '/usr/local/vim/vimfiles/plugin':
-    ensure => directory,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
+  file { '/usr/share/vim/vimfiles/plugin':
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    require => Package['vim-common'],
   }
-  file { '/usr/local/vim/vimfiles/plugin/puppet_eyes.vim':
+  file { '/usr/share/vim/vimfiles/plugin/puppet_eyes.vim':
     ensure => present,
     owner  => 'root',
     group  => 'root',
