@@ -13,8 +13,8 @@ class profile::base {
   $custom_profiles = lookup(
     'custom_profiles',
     {
-      'value_type'    => Array,
-      'default_value' => [],
+      'value_type'    => Enum[Array,Undef],
+      'default_value' => undef,
     }
   )
   #$custom_profiles = hiera_array('custom_profiles', undef)
