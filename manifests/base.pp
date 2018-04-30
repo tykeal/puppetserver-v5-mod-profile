@@ -6,6 +6,7 @@ class profile::base {
   include ::profile::external_facts
   include ::profile::haveged
   include ::profile::hosts
+  include ::profile::puppet::agent
   include ::profile::timezone
   include ::profile::vim
 
