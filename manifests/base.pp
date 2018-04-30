@@ -14,7 +14,7 @@ class profile::base {
     'custom_profiles',
     {
       'value_type'    => Array,
-      'default_value' => undef,
+      'default_value' => [],
     }
   )
   #$custom_profiles = hiera_array('custom_profiles', undef)
