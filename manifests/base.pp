@@ -5,6 +5,8 @@ class profile::base {
   include ::profile::auditd
   include ::profile::external_facts
   include ::profile::haveged
+  include ::profile::hosts
+  include ::profile::timezone
   include ::profile::vim
 
   # we haven't ported anything yet, it's just empty
