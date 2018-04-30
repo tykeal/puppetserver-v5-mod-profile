@@ -2,6 +2,7 @@
 # use
 class profile::base {
   include ::profile::admin
+  include ::profile::vim
 
   # we haven't ported anything yet, it's just empty
 
