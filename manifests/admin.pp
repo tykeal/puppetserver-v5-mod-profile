@@ -43,6 +43,6 @@ class profile::admin {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => "puppet:///modules/${module_name}/admin/scrits/puppet_eyes.vim",
+    source => "puppet:///modules/${module_name}/admin/scripts/puppet_eyes.vim",
   }
 }
