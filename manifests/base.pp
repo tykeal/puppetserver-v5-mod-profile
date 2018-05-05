@@ -4,6 +4,8 @@ class profile::base {
   include ::profile::admin
   include ::profile::auditd
   include ::profile::external_facts
+  # Configure git because it's just too useful to not have available
+  include ::profile::git
   include ::profile::haveged
   include ::profile::hosts
   include ::profile::puppet::agent
