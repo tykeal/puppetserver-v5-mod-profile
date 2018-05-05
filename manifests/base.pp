@@ -8,6 +8,8 @@ class profile::base {
   include ::profile::hosts
   include ::profile::puppet::agent
   include ::profile::timezone
+  include ::profile::screen
+  include ::profile::selinux
   include ::profile::vim
 
   # we haven't ported anything yet, it's just empty
