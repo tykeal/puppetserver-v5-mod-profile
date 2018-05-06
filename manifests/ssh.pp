@@ -27,7 +27,7 @@ class profile::ssh {
       'ssh::known_hosts',
       {
         default_value => {},
-        default_type  => Hash,
+        value_type  => Hash,
       }
     )
   $known_hosts.each |String $resource, Hash $options| {
@@ -40,7 +40,7 @@ class profile::ssh {
       'ssh::server::host_keys',
       {
         default_value => {},
-        default_type  => Hash,
+        value_type  => Hash,
       }
     )
   $ssh_host_keys.each |String $resource, Hash $options| {
@@ -54,7 +54,7 @@ class profile::ssh {
 #      'ssh::firewall_allow_from',
 #      {
 #        default_value => [],
-#        default_type  => Array,
+#        value_type  => Array,
 #      }
 #    )
 #
@@ -65,7 +65,7 @@ class profile::ssh {
 #        'ssh::firewall_always_allow_from',
 #        {
 #          default_value => [],
-#          default_type  => Array,
+#          value_type  => Array,
 #        }
 #      )
 #
