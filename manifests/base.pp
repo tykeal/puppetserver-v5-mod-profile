@@ -4,6 +4,7 @@ class profile::base {
   include ::profile::admin
   include ::profile::auditd
   include ::profile::external_facts
+  include ::profile::firewall
   # Configure git because it's just too useful to not have available
   include ::profile::git
   include ::profile::haveged
@@ -12,6 +13,7 @@ class profile::base {
   include ::profile::timezone
   include ::profile::screen
   include ::profile::selinux
+  include ::profile::ssh
   include ::profile::vim
 
   # we haven't ported anything yet, it's just empty
