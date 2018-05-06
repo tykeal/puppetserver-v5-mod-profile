@@ -9,4 +9,13 @@ class profile::puppetserver {
     mode   => '0500',
     source => "puppet:///modules/${module_name}/puppet/decommission_node.sh",
   }
+
+  # Firewall configuration
+  profile::firewall::rule { 'Puppet master trafic from all':
+    priority => '010',
+    proto    => 'tcp',
+    dport    => '8140',
+    state    => ['NEW'],
+    action   => 'accept',
+  }
 }
