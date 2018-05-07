@@ -18,4 +18,7 @@ class profile::puppetserver {
     state    => ['NEW'],
     action   => 'accept',
   }
+
+  # Configuration connection to puppetdb
+  include ::puppetdb::master::config
 }
