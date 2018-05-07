@@ -10,6 +10,7 @@ class profile::base {
   include ::profile::haveged
   include ::profile::hosts
   include ::profile::ntp
+  include ::profile::pam
   include ::profile::puppet::agent
   include ::profile::timezone
   include ::profile::screen
