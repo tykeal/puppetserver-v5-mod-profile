@@ -16,6 +16,7 @@ class profile::base {
   include ::profile::screen
   include ::profile::selinux
   include ::profile::ssh
+  include ::profile::sudo
   include ::profile::vim
 
   # we haven't ported anything yet, it's just empty
