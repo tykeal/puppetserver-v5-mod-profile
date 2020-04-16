@@ -76,7 +76,7 @@ define profile::firewall::rule (
   } else {
     case $facts['os']['name'] {
       'RedHat', 'CentOS': {
-        if $facts['os']['release']['major'] >= 8 {
+        if Integer($facts['os']['release']['major']) >= 8 {
           notice('firewalld rules not currently managed')
         } else {
           firewall  { "${priority} ${action} ${name}":

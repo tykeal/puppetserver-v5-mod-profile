@@ -13,7 +13,7 @@ class profile::firewall {
   } else {
     case $facts['os']['name'] {
       'RedHat', 'CentOS': {
-        if $facts['os']['release']['major'] >= 8 {
+        if Integer($facts['os']['release']['major']) >= 8 {
           include ::profile::firewall::firewalld
         } else {
           include ::profile::firewall::iptables
