@@ -10,6 +10,7 @@ class profile::admin {
     'iotop',
     'mtr',
     'nmap-ncat',
+    'screen',
     'tcpdump',
     'traceroute',
     'unzip'

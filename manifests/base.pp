@@ -13,7 +13,6 @@ class profile::base {
   include ::profile::pam
   include ::profile::puppet::agent
   include ::profile::timezone
-  include ::profile::screen
   include ::profile::selinux
   include ::profile::ssh
   include ::profile::sudo
