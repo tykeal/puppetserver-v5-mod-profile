@@ -39,10 +39,10 @@ class profile::puppet::agent {
 
   # /opt/puppetlabs/puppet/cache needs 0711 so that nrpe can traverse it to read
   # the state file we monitor
-  file { '/opt/puppetlabs/puppet/cache':
-    ensure => directory,
-    mode   => '0711',
-  }
+  # file { '/opt/puppetlabs/puppet/cache':
+  #   ensure => directory,
+  #   mode   => '0711',
+  # }
 
   # Always make sure puppet agent is running. If the agent needs to be disabled,
   # then 'puppet agent --disable "reason"' should be executed on the host.
