@@ -11,17 +11,6 @@ class profile::firewall {
   if $use_shorewall {
     include ::profile::firewall::shorewall
   } else {
-    case $facts['os']['name'] {
-      'RedHat', 'CentOS': {
-        if Integer($facts['os']['release']['major']) >= 8 {
-          include ::profile::firewall::firewalld
-        } else {
-          include ::profile::firewall::iptables
-        }
-      }
-      Default: {
-        notice('Unsupported OS for firewall')
-      }
-    }
+    include ::profile::firewall::iptables
   }
 }

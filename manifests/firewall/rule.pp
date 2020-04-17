@@ -74,25 +74,14 @@ define profile::firewall::rule (
       ipv6   => $_ipv6,
     }
   } else {
-    case $facts['os']['name'] {
-      'RedHat', 'CentOS': {
-        if Integer($facts['os']['release']['major']) >= 8 {
-          notice('firewalld rules not currently managed')
-        } else {
-          firewall  { "${priority} ${action} ${name}":
-            proto    => $proto,
-            dport    => $dport,
-            state    => $state,
-            source   => $source,
-            action   => $action,
-            iniface  => $iniface,
-            outiface => $outiface,
-          }
-        }
-      }
-      Default: {
-        notice('Unsupported OS for firewall::rule configuration')
-      }
+    firewall  { "${priority} ${action} ${name}":
+      proto    => $proto,
+      dport    => $dport,
+      state    => $state,
+      source   => $source,
+      action   => $action,
+      iniface  => $iniface,
+      outiface => $outiface,
     }
   }
 }
