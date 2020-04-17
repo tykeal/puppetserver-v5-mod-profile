@@ -20,5 +20,5 @@ class profile::puppetserver {
   }
 
   # Configuration connection to puppetdb
-  # include ::puppetdb::master::config
+  include ::puppetdb::master::config
 }
