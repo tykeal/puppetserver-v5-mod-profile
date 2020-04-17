@@ -9,7 +9,8 @@ class profile::base {
   include ::profile::git
   include ::profile::haveged
   include ::profile::hosts
-  include ::profile::ntp
+  # ntp doesn't exist on EL8, I need to investigate a chrony module
+  # include ::profile::ntp
   include ::profile::pam
   include ::profile::puppet::agent
   include ::profile::timezone
