@@ -10,7 +10,7 @@ class profile::base {
   include ::profile::haveged
   # temporarily remove hosts management as there seems to be bug
   # when puppetdb isn't working yet
-  # include ::profile::hosts
+  include ::profile::hosts
   # ntp doesn't exist on EL8, I need to investigate a chrony module
   # include ::profile::ntp
   include ::profile::pam
