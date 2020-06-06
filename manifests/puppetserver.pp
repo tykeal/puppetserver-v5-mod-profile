@@ -21,4 +21,7 @@ class profile::puppetserver {
 
   # Configuration connection to puppetdb
   include ::puppetdb::master::config
+
+  # Setup puppetmaster as the dehydrated / letsencrypt server
+  include ::profile::dehydrated::server
 }
