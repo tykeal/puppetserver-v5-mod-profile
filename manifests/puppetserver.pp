@@ -21,4 +21,7 @@ class profile::puppetserver {
 
   # Configuration connection to puppetdb
   include ::puppetdb::master::config
+
+  # Setup acme for letsencrypt
+  include ::profile::acme
 }
