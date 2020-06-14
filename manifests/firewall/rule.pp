@@ -84,7 +84,14 @@ define profile::firewall::rule (
       outiface => $outiface,
     }
 
-    if (lookup('firewall::ensure_v6', undef)) {
+    $ipv6 = lookup(
+      'firewall::ensure_v6',
+      {
+        default_value => undef,
+        value_type    => Enum['running', 'stopped'],
+      }
+    )
+    if ($ipv6 == 'running') {
       firewall  { "${priority} ${action} ${name} v6":
         proto    => $proto,
         dport    => $dport,
