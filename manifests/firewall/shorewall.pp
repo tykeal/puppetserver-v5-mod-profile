@@ -16,61 +16,6 @@ class profile::firewall::shorewall {
     }
   }
 
-  # file { '/etc/shorewall/macro.IPA':
-  #   ensure  => 'present',
-  #   owner   => 'root',
-  #   group   => 'root',
-  #   seltype => 'shorewall_etc_t',
-  #   seluser => 'system_u',
-  #   selrole => 'object_r',
-  #   source  => "puppet:///modules/${module_name}/shorewall/macro.IPA",
-  #   require => Package['shorewall'],
-  # }
-
-  # file { '/etc/shorewall/macro.MCO':
-  #   ensure  => 'present',
-  #   owner   => 'root',
-  #   group   => 'root',
-  #   seltype => 'shorewall_etc_t',
-  #   seluser => 'system_u',
-  #   selrole => 'object_r',
-  #   source  => "puppet:///modules/${module_name}/shorewall/macro.MCO",
-  #   require => Package['shorewall'],
-  # }
-
-  # file { '/etc/shorewall/macro.Totpcgi':
-  #   ensure  => 'present',
-  #   owner   => 'root',
-  #   group   => 'root',
-  #   seltype => 'shorewall_etc_t',
-  #   seluser => 'system_u',
-  #   selrole => 'object_r',
-  #   source  => "puppet:///modules/${module_name}/shorewall/macro.Totpcgi",
-  #   require => Package['shorewall'],
-  # }
-
-  # file { '/etc/shorewall/macro.RELP':
-  #   ensure  => 'present',
-  #   owner   => 'root',
-  #   group   => 'root',
-  #   seltype => 'shorewall_etc_t',
-  #   seluser => 'system_u',
-  #   selrole => 'object_r',
-  #   source  => "puppet:///modules/${module_name}/shorewall/macro.RELP",
-  #   require => Package['shorewall'],
-  # }
-
-  # file { '/etc/shorewall/macro.Nagios':
-  #   ensure  => 'present',
-  #   owner   => 'root',
-  #   group   => 'root',
-  #   seltype => 'shorewall_etc_t',
-  #   seluser => 'system_u',
-  #   selrole => 'object_r',
-  #   source  => "puppet:///modules/${module_name}/shorewall/macro.Nagios",
-  #   require => Package['shorewall'],
-  # }
-
   shorewall::config { 'STARTUP_ENABLED':
     value => 'Yes',
   }

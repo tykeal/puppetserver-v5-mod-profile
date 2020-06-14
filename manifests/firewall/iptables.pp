@@ -5,7 +5,13 @@ class profile::firewall::iptables {
   }
 
   resources { 'firewall':
-    purge => hiera('firewall::purgerules',true),
+    purge => lookup(
+      'firewall::purgerules',
+      {
+        default_value => true,
+        value_type    => Boolean,
+      }
+    ),
   }
   Firewall {
     before  => Class['local_fw::post'],
