@@ -83,5 +83,17 @@ define profile::firewall::rule (
       iniface  => $iniface,
       outiface => $outiface,
     }
+
+    if (lookup('firewall::ensure_v6', undef)) {
+      firewall  { "${priority} ${action} ${name} v6":
+        proto    => $proto,
+        dport    => $dport,
+        state    => $state,
+        source   => $source,
+        action   => $action,
+        iniface  => $iniface,
+        outiface => $outiface,
+      }
+    }
   }
 }
