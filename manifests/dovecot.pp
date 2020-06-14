@@ -50,10 +50,10 @@ class profile::dovecot {
   }
 
   # pops/imaps
-  ::profile::firewall::rule { 'Enable POPS/IMAPS':
+  ::profile::firewall::rule { 'Enable POPS/IMAPS/SIEVE':
     priority => '645',
     proto    => 'tcp',
-    dport    => ['993', '995'],
+    dport    => ['993', '995', '4190'],
     state    => ['NEW'],
     action   => 'accept',
   }
