@@ -1,5 +1,5 @@
-# class ::profile::postifx
-class profile::postfix {
+# class ::profile::smtp::postifx
+class profile::smtp::postfix {
   include ::postfix
 
   # Always force transport maps to be created even when not being pushed

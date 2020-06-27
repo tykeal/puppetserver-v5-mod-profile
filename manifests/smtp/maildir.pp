@@ -1,5 +1,5 @@
-# profile::maildir
-class profile::maildir {
+# profile::smtp::maildir
+class profile::smtp::maildir {
   # we host our user mail in Maildirs
   #
   # should we create a new user we want them to get that setup correctly

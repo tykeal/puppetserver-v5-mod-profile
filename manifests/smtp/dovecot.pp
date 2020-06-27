@@ -1,5 +1,5 @@
-# ::profile::dovecot
-class profile::dovecot {
+# ::profile::smtp::dovecot
+class profile::smtp::dovecot {
   include ::dovecot
 
   # load the dovcecot config to determine the cert name we should be acquiring
