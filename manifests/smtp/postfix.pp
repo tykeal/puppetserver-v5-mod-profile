@@ -72,10 +72,11 @@ class profile::smtp::postfix {
   if ($mta) {
     # SMTP operates on port 25 by definition, if the server isn't operating
     # on that port there is likely a problem
+    # Additionally open 587 (submission)
     ::profile::firewall::rule { 'Accept all SMTP traffic':
       priority => '025',
       proto    => 'tcp',
-      dport    => ['25'],
+      dport    => ['25', '587'],
       state    => ['NEW'],
       action   => 'accept',
     }
