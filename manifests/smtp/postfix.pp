@@ -83,7 +83,7 @@ class profile::smtp::postfix {
 
   if has_key($postfix_configs, 'myhostname')
   {
-    $cert_host = $postfix_configs['myhostname']
+    $cert_host = $postfix_configs['myhostname']['value']
   }
 
   # load the acme certificate values as we're going to call a define and those
