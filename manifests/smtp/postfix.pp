@@ -118,6 +118,7 @@ class profile::smtp::postfix {
     use_account    => $acme_use_account,
     use_profile    => $acme_use_profile,
     letsencrypt_ca => $acme_le_ca,
+    notify         => Class['postfix::service'],
   }
 
 }
