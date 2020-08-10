@@ -16,6 +16,16 @@ class profile::smtp::dovecot {
     $cert_host = $dovecot_config['hostname']
   }
 
+  # generate a 4096 DH key
+  openssl::dhparam { '/etc/pki/dovecot/dh.pem':
+    size   => 4096,
+    owner  => 'dovecot',
+    group  => 'dovecot',
+    mode   => '0600',
+    before => Class['dovecot::service'],
+    notify => Class['dovecot::service'],
+  }
+
   # load the acme certificate values as we're going to call a define and those
   # don't auto-lookups
   $acme_use_account = lookup(
