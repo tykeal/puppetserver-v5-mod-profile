@@ -17,7 +17,7 @@ class profile::smtp::dovecot {
   }
 
   # generate a 4096 DH key
-  openssl::dhparam { '/etc/pki/dovecot/dh.pem':
+  openssl::dhparam { '/etc/pki/dovecot/private/dh.pem':
     size   => 4096,
     owner  => 'dovecot',
     group  => 'dovecot',
