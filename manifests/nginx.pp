@@ -3,7 +3,7 @@ class profile::nginx {
   include ::nginx
 
   # allow nginx to set rlimit
-  seboolean { 'httpd_setrlimit':
+  selboolean { 'httpd_setrlimit':
     persistent => true,
     value      => on,
   }
