@@ -2,10 +2,11 @@
 class profile::db::mysql::server {
   include ::mysql::server
 
-  $resourcetag = lookup('mysql::resourcetag',
+  $resourcetag = lookup(
+    'mysql::resourcetag',
     {
-      type    => String,
-      default => undef,
+      default    => undef,
+      value_type => String,
     }
   )
 
