@@ -5,7 +5,7 @@ class profile::db::mysql::server {
   $resourcetag = lookup(
     'mysql::resourcetag',
     {
-      default_value => undef,
+      default_value => '',
       value_type    => String,
     }
   )
