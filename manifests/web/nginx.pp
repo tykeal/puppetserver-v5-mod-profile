@@ -1,5 +1,5 @@
 # nginx webserver
-class profile::nginx {
+class profile::web::nginx {
   include ::nginx
 
   # allow nginx to set rlimit
