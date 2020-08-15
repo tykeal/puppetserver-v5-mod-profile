@@ -16,4 +16,19 @@ class profile::selinux {
       * => $options,
     }
   }
+
+  # configure hiera managed selbooleans
+  $selbooleans = lookup(
+    'selinux::selbooleans',
+    {
+      value_type    => Hash,
+      default_value => {},
+    }
+  )
+
+  $selbooleans.each |$resource, $options| {
+    ::selboolean { $resource:
+      * => $options,
+    }
+  }
 }
