@@ -27,7 +27,7 @@ class profile::selinux {
   )
 
   $selbooleans.each |$resource, $options| {
-    ::selboolean { $resource:
+    selboolean { $resource:
       * => $options,
     }
   }
