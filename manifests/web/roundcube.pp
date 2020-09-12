@@ -43,6 +43,19 @@ class profile::web::roundcube {
     }
   )
 
+  $install_dir = lookup(
+    'roundcube::install_dir',
+    {
+      # no default, we want it to fail if it isn't set
+      value_type => Stdlib::Absolutepath,
+    }
+  )
+
+  # the roundcube module doesn't manage the install dir location resource
+  file { $install_dir:
+    ensure => 'directory',
+  }
+
   @@mysql::db { "roundcube_${::fqdn}":
     user     => $db_username,
     password => $db_password,
