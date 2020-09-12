@@ -56,6 +56,18 @@ class profile::web::roundcube {
     ensure => 'directory',
   }
 
+  $package_dir = lookup(
+    'roundcube::package_dir',
+    {
+      default_value => '/var/cache/puppet/archives',
+      value_type    => Stdlib::Absolutepath,
+    }
+  )
+
+  file { $package_dir:
+    ensure => 'directory',
+  }
+
   @@mysql::db { "roundcube_${::fqdn}":
     user     => $db_username,
     password => $db_password,
