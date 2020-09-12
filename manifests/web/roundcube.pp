@@ -2,16 +2,6 @@
 class profile::web::roundcube {
   include ::roundcube
 
-  # The module only understands debian, so we need to do a little extra work
-  ensure_packages (
-    [
-      'composer',
-    ],
-    { ensure => installed }
-  )
-
-  Package['composer'] -> Class['roundcube']
-
   # Deal with creating the DB (we're only going to do mysql)
   $db_name = lookup(
     'roundcube::db_name',
