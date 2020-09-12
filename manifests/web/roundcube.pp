@@ -2,6 +2,8 @@
 class profile::web::roundcube {
   include ::roundcube
 
+  Class['php'] -> Class['roundcube']
+
   # Deal with creating the DB (we're only going to do mysql)
   $db_name = lookup(
     'roundcube::db_name',
