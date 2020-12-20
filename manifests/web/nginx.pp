@@ -20,24 +20,6 @@ class profile::web::nginx {
     Acme::Certificate[$resource] ~> Class['nginx::service']
   }
 
-  # $nginx_servers = lookup(
-  #   'nginx::nginx_servers',
-  #   {
-  #     value_type => Hash,
-  #   }
-  # )
-
-  # $nginx_servers.each |String $resource, Hash $options| {
-  #   if has_key($options, 'ssl_cert')
-  #   {
-  #     File[$options['ssl_cert']] ~> Service['nginx']
-  #   }
-  #   if has_key($options, 'ssl_key')
-  #   {
-  #     File[$options['ssl_key']] ~> Service['nginx']
-  #   }
-  # }
-
   # http(s)
   ::profile::firewall::rule { 'Enable HTTP/HTTPS':
     priority => '030',
