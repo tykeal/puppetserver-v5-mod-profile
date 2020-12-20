@@ -19,13 +19,11 @@ class profile::web::nginx {
   $nginx_servers.each |String $resource, Hash $options| {
     if has_key($options, 'ssl_cert')
     {
-      notify {$options['ssl_cert']: }
-      # 0File[$options['ssl_cert']] ~> Service['nginx']
+      File[$options['ssl_cert']] ~> Service['nginx']
     }
     if has_key($options, 'ssl_key')
     {
-      notify {$options['ssl_key']: }
-      # File[$options['ssl_key']] ~> Service['nginx']
+      File[$options['ssl_key']] ~> Service['nginx']
     }
   }
 
