@@ -16,7 +16,7 @@ class profile::web::nginx {
     }
   )
 
-  $acme_certificates.each |String $resource| {
+  $acme_certificates.each |String $resource, Hash $options| {
     Acme::Certificate[$resource] ~> Class['nginx::service']
   }
 
