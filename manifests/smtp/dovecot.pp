@@ -3,18 +3,25 @@ class profile::smtp::dovecot {
   include ::dovecot
 
   # load the dovcecot config to determine the cert name we should be acquiring
-  $dovecot_config = lookup(
-    'dovecot::config',
+  # $dovecot_config = lookup(
+  #   'dovecot::config',
+  #   {
+  #     default_value => {},
+  #     value_type    => Hash,
+  #   }
+  # )
+
+  # if has_key($dovecot_config, 'hostname')
+  # {
+  #   $cert_host = $dovecot_config['hostname']
+  # }
+
+  $cert_host = lookup(
+    'dovecot::cert',
     {
-      default_value => {},
-      value_type    => Hash,
+      value_type => String,
     }
   )
-
-  if has_key($dovecot_config, 'hostname')
-  {
-    $cert_host = $dovecot_config['hostname']
-  }
 
   # generate a 4096 DH key
   openssl::dhparam { '/etc/pki/dovecot/private/dh.pem':
