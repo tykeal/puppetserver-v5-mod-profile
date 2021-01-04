@@ -21,25 +21,15 @@ class profile::base {
   include ::profile::sudo
   include ::profile::vim
 
-  # we haven't ported anything yet, it's just empty
-
-  # hiera drive custom porfile / class loads
-  #$custom_profiles = lookup(
-  #  'custom_profiles',
-  #  {
-  #    'value_type'    => Variant[Array[String],Undef],
-  #    'default_value' => undef,
-  #  }
-  #)
-  ##$custom_profiles = hiera_array('custom_profiles', undef)
-  #if ($custom_profiles) {
-  #  lookup('custom_profiles', {merge => unique}).include
-  #  #hiera_include('custom_profiles')
-  #}
-  lookup('custom_profiles',
+  # hiera drive custom profile / class loads
+  $custom_profiles = lookup(
+    'custom_profiles',
     {
-      'default_value' => undef,
-      'merge'         => unique,
       'value_type'    => Variant[Array[String],Undef],
-    }).include
+      'default_value' => undef,
+    }
+  )
+  if ($custom_profiles) {
+    lookup('custom_profiles', {merge => unique}).include
+  }
 }
