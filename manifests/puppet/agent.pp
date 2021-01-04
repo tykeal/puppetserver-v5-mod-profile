@@ -25,8 +25,8 @@ class profile::puppet::agent {
   # load settings that should be in the global puppet main section
   $puppetmain = lookup('puppet::main',
     {
-      'value_type'    => Hash,
-      'default_value' => {},
+      value_type    => Hash,
+      default_value => {},
     }
   )
   $puppetmain.each |String $conf_setting, String $conf_value| {

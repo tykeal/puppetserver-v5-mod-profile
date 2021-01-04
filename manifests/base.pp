@@ -25,8 +25,8 @@ class profile::base {
   $custom_profiles = lookup(
     'custom_profiles',
     {
-      'value_type'    => Variant[String, Array[String], Undef],
-      'default_value' => undef,
+      value_type    => Variant[String, Array[String], Undef],
+      default_value => undef,
     }
   )
   if ($custom_profiles) {

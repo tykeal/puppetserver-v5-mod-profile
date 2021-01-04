@@ -6,8 +6,8 @@ class profile::selinux {
   $fcontexts = lookup(
       'selinux::fcontexts',
       {
-        'value_type'    => Hash,
-        'default_value' => {},
+        value_type    => Hash,
+        default_value => {},
       }
     )
 
