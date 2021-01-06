@@ -1,0 +1,11 @@
+# Class profile::testit
+class profile::testit {
+  $teststruct = lookup('testit::teststruct',
+    {
+      default_value => {},
+      value_type    => Variant[
+        {},
+        Hash[Stdlib::Fqdn, Struct[{port => Integer}]],
+      ],
+    })
+}
