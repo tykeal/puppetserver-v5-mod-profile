@@ -3,9 +3,13 @@ class profile::testit {
   $teststruct = lookup('testit::teststruct',
     {
       default_value => {},
-      value_type    => Variant[
-        {},
-        Hash[Stdlib::Fqdn, Struct[{port => Integer}]],
-      ],
+      value_type    => Hash[
+                        Stdlib::Fqdn,
+                        Struct[{port => Integer}],
+                        0],
+          #value_type    => Variant[
+          #  {},
+          #  Hash[Stdlib::Fqdn, Struct[{port => Integer}]],
+          #],
     })
 }
