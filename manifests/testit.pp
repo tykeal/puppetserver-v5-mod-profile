@@ -14,6 +14,6 @@ class profile::testit {
     })
 
   if $teststruct {
-    notify {'teststruct exists':}
+    notify {"teststruct '${teststruct}' exists":}
   }
 }
