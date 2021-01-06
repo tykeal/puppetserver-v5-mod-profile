@@ -12,4 +12,8 @@ class profile::testit {
           #  Hash[Stdlib::Fqdn, Struct[{port => Integer}]],
           #],
     })
+
+  if $teststruct {
+    notice("teststruct '$teststruct' exists")
+  }
 }
