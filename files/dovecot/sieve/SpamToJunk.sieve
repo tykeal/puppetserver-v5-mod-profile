@@ -1,7 +1,5 @@
-require "copy";
-require "mailbox";
-require "imap4flags";
 require "fileinto";
+require "mailbox";
 
 # rule:[Send SPAM to Junk]
 if header :contains "X-Spam-Flag" "YES"
