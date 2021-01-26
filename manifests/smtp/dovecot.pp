@@ -2,20 +2,6 @@
 class profile::smtp::dovecot {
   include ::dovecot
 
-  # load the dovcecot config to determine the cert name we should be acquiring
-  # $dovecot_config = lookup(
-  #   'dovecot::config',
-  #   {
-  #     default_value => {},
-  #     value_type    => Hash,
-  #   }
-  # )
-
-  # if has_key($dovecot_config, 'hostname')
-  # {
-  #   $cert_host = $dovecot_config['hostname']
-  # }
-
   $cert_host = lookup(
     'dovecot::cert',
     {
@@ -74,5 +60,38 @@ class profile::smtp::dovecot {
     dport    => ['110', '143', '993', '995', '4190'],
     state    => ['NEW'],
     action   => 'accept',
+  }
+
+  # setup global sieve filters if sieve is being loaded
+  $dovecot_plugins = lookup(
+    'dovecot::plugins',
+    {
+      default_value => undef,
+      value_type    => Optional[Array[String]],
+    }
+  )
+
+  if (($dovecot_plugins) and ('sieve' in $dovecot_plugins)) {
+    file { '/etc/dovecot/sieve':
+      ensure => directory,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      purge  => true,
+    }
+
+    $sieve_filters = lookup(
+      'dovecot::sieve_filters',
+      {
+        default_value => [],
+        value_type    => Array[String],
+      }
+    )
+
+    $sieve_filters.each |String $filter| {
+      dovecot::sieve { "/etc/dovecot/sieve/${filter}.sieve":
+        source => "puppet:///modules/${module_name}/dovecot/sieve/${filter}.sieve",
+      }
+    }
   }
 }
