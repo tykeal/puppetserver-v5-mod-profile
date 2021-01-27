@@ -121,4 +121,12 @@ class profile::smtp::postfix {
     notify         => Class['postfix::service'],
   }
 
+  # add some maintenance scripts
+  file { '/usr/local/bin/pfdel.pl':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0555',
+    source => "puppet:///modules/${module_name}/postfix/pfdel.pl",
+  }
 }
