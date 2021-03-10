@@ -20,4 +20,6 @@ class profile::testit {
   $monitorinfo = ::profile::monitorinfo()
 
   notify {"monitorinfo '${monitorinfo}'":}
+
+  notify {"monitorinfo['enable'] '${monitorinfo['enable']}'":}
 }
