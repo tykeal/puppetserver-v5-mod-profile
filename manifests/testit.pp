@@ -16,4 +16,6 @@ class profile::testit {
   if $teststruct {
     notify {"teststruct '${teststruct}' exists":}
   }
+
+  $monitorinfo = ::profile::monitorinfo()
 }
