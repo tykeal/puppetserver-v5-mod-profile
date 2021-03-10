@@ -18,4 +18,6 @@ class profile::testit {
   }
 
   $monitorinfo = ::profile::monitorinfo()
+
+  notify {"monitorinfo '${monitorinfo}'":}
 }
