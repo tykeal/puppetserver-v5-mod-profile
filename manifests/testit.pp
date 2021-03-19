@@ -22,4 +22,7 @@ class profile::testit {
   notify {"monitorinfo '${monitorinfo}'":}
 
   notify {"monitorinfo['enable'] '${monitorinfo['enable']}'":}
+
+  $extra = 'testit_more'
+  include "::profile::${extra}"
 }
