@@ -82,7 +82,7 @@ class profile::smtp::postfix {
     }
   }
 
-  if has_key($postfix_configs, 'myhostname')
+  if 'myhostname' in $postfix_configs {
   {
     $cert_host = $postfix_configs['myhostname']['value']
   }

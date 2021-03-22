@@ -28,7 +28,7 @@ define profile::firewall::rule (
       $_source = 'all'
     }
 
-    if is_array($dport) {
+    if $dport =~ Array {
       $_dport = join($dport, ',')
     } else {
       # $_dport must absolutely be a string so we need to force it
@@ -38,7 +38,7 @@ define profile::firewall::rule (
       # lint:endignore
     }
 
-    if is_array($sport) {
+    if $sport =~ Array {
       $_sport = join($sport, ',')
     } else {
       # $_sport must absolutely be a string so we need to force it

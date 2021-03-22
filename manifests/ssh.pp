@@ -11,7 +11,8 @@ class profile::ssh {
       }
     )
 
-  if has_key($ssh_server_options, 'Port')
+  if 'Port' in $ssh_server_options and
+    $ssh_server_options =~ Stdlib::Port
   {
     $dport = $ssh_server_options['Port']
   }
