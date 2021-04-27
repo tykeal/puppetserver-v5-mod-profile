@@ -16,7 +16,7 @@ class profile::puppet::agent {
     value   => true,
   }
 
-  ini_setting { 'puppet.conf/agent/server':
+  ini_setting { 'puppet.conf/main/server':
     section => 'agent',
     setting => 'server',
     value   => $puppetserver,
