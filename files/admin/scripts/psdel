@@ -67,13 +67,13 @@ class Process (object):
                 self.user = pwd.getpwuid (string.atoi (m.group (1)))[0]
                 continue
         status.close ()
-    
+
     def info (self):
         return '%d %s %s' % (self.pid, self.name, self.user)
 
 def delmaps (pid):
     seen = set ()
-    
+
     try:
         maps = open('/proc/%d/maps' % (pid))
     except IOError, (e, strerror):
@@ -84,7 +84,7 @@ def delmaps (pid):
     else:
         maplines = maps.readlines ()
         maps.close ()
-    
+
     if len (maplines) == 0:
         # handle kernel threads
         if len (open ('/proc/%d/cmdline' % (pid)).read ()) == 0:
