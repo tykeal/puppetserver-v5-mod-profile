@@ -38,7 +38,7 @@ class profile::puppet::master (
       path    => '/opt/puppetlabs/server/data/puppetserver/reports',
       age     => $report_ttl,
       recurse => true,
-      matchs  => [ '*.yaml' ],
+      matches => [ '*.yaml' ],
       rmdirs  => true,
     }
   }
