@@ -1,5 +1,7 @@
 # Puppet master configuration
-class profile::puppet::master {
+class profile::puppet::master (
+  String $report_ttl = '1w',
+) {
   Ini_setting {
     ensure  => present,
     section => 'master',
@@ -19,6 +21,25 @@ class profile::puppet::master {
     ini_setting { "puppet.conf/master/${conf_setting}":
       setting => $conf_setting,
       value   => $conf_value,
+    }
+  }
+
+  # Create a cron job that fires once a day to enable log cleaning
+  file { '/etc/cron.daily/flag_puppet_tidy':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0744',
+    source => "puppet:///modules/${module_name}/puppet/flag_puppet_tidy",
+  }
+
+  if $::flag_puppet_tidy {
+    tidy { 'tidy puppet reports':
+      path    => '/opt/puppetlabs/server/data/puppetserver/reports',
+      age     => $report_ttl,
+      recurse => true,
+      matchs  => [ '*.yaml' ],
+      rmdirs  => true,
     }
   }
 }
