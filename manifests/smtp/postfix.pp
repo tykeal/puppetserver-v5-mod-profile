@@ -105,7 +105,7 @@ class profile::smtp::postfix {
   )
 
   $acme_le_ca = lookup(
-    'acme::certificate::letsencrypt_ca',
+    'acme::certificate::ca',
     {
       # This is allowed to be undef (defaults to production)
       default_value => undef,
@@ -114,10 +114,10 @@ class profile::smtp::postfix {
   )
 
   ::acme::certificate { $cert_host :
-    use_account    => $acme_use_account,
-    use_profile    => $acme_use_profile,
-    letsencrypt_ca => $acme_le_ca,
-    notify         => Class['postfix::service'],
+    use_account => $acme_use_account,
+    use_profile => $acme_use_profile,
+    ca          => $acme_le_ca,
+    notify      => Class['postfix::service'],
   }
 
   # add some maintenance scripts
