@@ -16,7 +16,7 @@ class profile::puppetserver {
     proto    => 'tcp',
     dport    => '8140',
     state    => ['NEW'],
-    jump     => 'accept',
+    action   => 'accept',
   }
 
   # Configuration connection to puppetdb

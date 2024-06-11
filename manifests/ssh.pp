@@ -85,6 +85,6 @@ class profile::ssh {
     proto    => 'tcp',
     dport    => $dport,
     state    => ['NEW'],
-    jump     => 'accept',
+    action   => 'accept',
   }
 }
