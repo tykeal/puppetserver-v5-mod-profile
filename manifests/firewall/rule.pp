@@ -94,7 +94,7 @@ define profile::firewall::rule (
     if ($ensure_ipv6 == 'running') {
       firewall  { "${priority} ${action} ${name} v6":
         proto    => $proto,
-        provider => 'ip6tables',
+        protocol => 'ip6tables',
         dport    => $dport,
         state    => $state,
         source   => $source,
