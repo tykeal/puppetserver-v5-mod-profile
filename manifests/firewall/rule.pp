@@ -68,7 +68,7 @@ define profile::firewall::rule (
       sport  => $_sport,
       source => $_source,
       dest   => 'local',
-      action => $_action,
+      jump   => $_action,
       order  => $_order,
       ipv4   => $ipv4,
       ipv6   => $_ipv6,
@@ -79,7 +79,7 @@ define profile::firewall::rule (
       dport    => $dport,
       state    => $state,
       source   => $source,
-      action   => $action,
+      jump     => $action,
       iniface  => $iniface,
       outiface => $outiface,
     }
@@ -98,7 +98,7 @@ define profile::firewall::rule (
         dport    => $dport,
         state    => $state,
         source   => $source,
-        action   => $action,
+        jump     => $action,
         iniface  => $iniface,
         outiface => $outiface,
       }
