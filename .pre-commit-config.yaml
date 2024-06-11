@@ -16,6 +16,18 @@ repos:
     hooks:
       - id: gitlint
 
+  - repo: https://github.com/chriskuehl/puppet-pre-commit-hooks.git
+    rev: 8106e1ded84fc9a9e67a676e435d794c039e5d69 # frozen: v2.2.0
+    hooks:
+      - id: epp-validate
+      - id: erb-validate
+      - id: puppet-lint
+        args:
+          - --with-context
+          - --no-autoloader_layout-check
+      - id: puppet-validate
+      - id: ruby-validate
+
   - repo: https://github.com/jumanjihouse/pre-commit-hooks
     rev: 38980559e3a605691d6579f96222c30778e5a69e # frozen: 3.0.0
     hooks:
