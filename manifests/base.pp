@@ -3,7 +3,7 @@
 class profile::base {
   include ::profile::admin
   # include ::profile::auditd
-  include ::profile::external_facts
+  # include ::profile::external_facts
   include ::profile::firewall
   # Configure git because it's just too useful to not have available
   include ::profile::git
