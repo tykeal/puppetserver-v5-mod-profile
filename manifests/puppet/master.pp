@@ -33,13 +33,11 @@ class profile::puppet::master (
     source => "puppet:///modules/${module_name}/puppet/flag_puppet_tidy",
   }
 
-  if $::flag_puppet_tidy {
-    tidy { 'tidy puppet reports':
-      path    => '/opt/puppetlabs/server/data/puppetserver/reports',
-      age     => $report_ttl,
-      recurse => true,
-      matches => [ '*.yaml' ],
-      rmdirs  => true,
-    }
+  tidy { 'tidy puppet reports':
+    path    => '/opt/puppetlabs/server/data/puppetserver/reports',
+    age     => $report_ttl,
+    recurse => true,
+    matches => [ '*.yaml' ],
+    rmdirs  => true,
   }
 }
