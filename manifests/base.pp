@@ -17,7 +17,7 @@ class profile::base {
   include ::profile::puppet::agent
   include ::profile::timezone
   include ::profile::types
-  include ::profile::selinux
+  # include ::profile::selinux
   include ::profile::ssh
   include ::profile::sudo
   include ::profile::vim
