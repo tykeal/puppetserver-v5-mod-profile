@@ -36,19 +36,19 @@ class profile::smtp::postfix {
     }
   }
 
-  $postfix_transports = lookup(
-    'postfix::transports',
-    {
-      default_value => {},
-      value_type    => Hash,
-    }
-  )
-  $postfix_transports.each |String $resource, Hash $options| {
-    ::postfix::transport { $resource:
-      * => $options,
-    }
-  }
-
+  #  $postfix_transports = lookup(
+  #    'postfix::transports',
+  #    {
+  #      default_value => {},
+  #      value_type    => Hash,
+  #    }
+  #  )
+  #  $postfix_transports.each |String $resource, Hash $options| {
+  #    ::postfix::transport { $resource:
+  #      * => $options,
+  #    }
+  #  }
+  #
   $postfix_virtuals = lookup(
     'postfix::virtuals',
     {
